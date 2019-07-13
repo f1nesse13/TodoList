@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Todo.create(title: "Go food shopping", body: "Milk, eggs, bread")
+Todo.create(title: "Get Layla from school", body: "3PM")
+Todo.create(title: "Create Rails Todo List", body: "5PM")
