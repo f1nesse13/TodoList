@@ -1,5 +1,28 @@
 {
-  "name": "reactRedux_todos_part2",
-  "private": true,
-  "dependencies": {}
+  "name": "react-redux_todos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "todo_redux.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
+    "webpack": "webpack --watch --mode=development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "lodash": "^4.17.11",
+    "path": "^0.12.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.2",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  }
 }
