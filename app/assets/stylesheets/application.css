@@ -183,3 +183,11 @@ h3 {
   color: #67cef6;
   font-weight: bold;
 }
+
+.error-list li {
+  color: #f00;
+  font-size: 1.7rem;
+  width: 25%;
+  font-weight: bold;
+  border: 3px solid #f00;
+}

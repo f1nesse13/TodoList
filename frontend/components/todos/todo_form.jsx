@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import ErrorList from './error_list';
 import uniqueId from '../../util/unique_id';
 
 class TodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: '', body: '', done: false };
+    this.state = { title: '', body: '', done: false, errors: [] };
   }
 
   update(field) {
@@ -14,13 +15,16 @@ class TodoForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const todo = Object.assign({}, this.state, { id: uniqueId() });
-    this.props.receiveTodo(todo);
-    this.setState({ title: '', body: '' });
+    this.props.createTodo(todo).then(() => {
+      this.props.clearErrors;
+      this.setState({ title: '', body: '' });
+    });
   }
 
   render() {
     return (
       <div className="form">
+        <ErrorList errors={this.props.errors} />
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label>
             Add New Todo
