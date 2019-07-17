@@ -10,7 +10,7 @@ class TodoListItem extends Component {
   updateTodo(e) {
     e.preventDefault();
     const toggleTodo = Object.assign({}, this.props.todo, { done: !this.props.todo.done });
-    this.props.receiveTodo(toggleTodo);
+    this.props.updateTodo(toggleTodo);
   }
 
   showDetails(e) {

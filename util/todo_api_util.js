@@ -11,3 +11,16 @@ export const createTodo = data =>
     data: { todo: data },
     dataType: 'json'
   });
+
+export const updateTodo = data =>
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/todos/${data.id}`,
+    data: { todo: data }
+  });
+
+export const deleteTodo = id =>
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/todos/${id}`
+  });

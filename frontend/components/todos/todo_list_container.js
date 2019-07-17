@@ -3,11 +3,11 @@ import TodoList from './todo_list';
 
 import { allTodos } from '../../reducers/selectors';
 import {
-  receiveTodo,
   receiveTodos,
   removeTodo,
   fetchTodos,
-  createTodo
+  createTodo,
+  updateTodo
 } from '../../actions/todo_actions';
 
 const mapStateToProps = state => ({
@@ -17,11 +17,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  receiveTodo: todo => dispatch(receiveTodo(todo)),
   removeTodo: todo => dispatch(removeTodo(todo)),
   fetchTodo: () => dispatch(fetchTodos()),
   clearErrors: () => dispatch(clearErrors()),
-  createTodo: todo => dispatch(createTodo(todo))
+  createTodo: todo => dispatch(createTodo(todo)),
+  updateTodo: todo => dispatch(updateTodo(todo))
 });
 
 export default connect(

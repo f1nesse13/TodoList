@@ -16,7 +16,6 @@ class TodoForm extends Component {
     e.preventDefault();
     const todo = Object.assign({}, this.state, { id: uniqueId() });
     this.props.createTodo(todo).then(() => {
-      this.props.clearErrors;
       this.setState({ title: '', body: '' });
     });
   }

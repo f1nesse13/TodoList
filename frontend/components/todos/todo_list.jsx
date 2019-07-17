@@ -11,10 +11,24 @@ class TodoList extends React.Component {
   }
 
   render() {
-    const { todos, errors, clearErrors, receiveTodo, removeTodo, createTodo } = this.props;
+    const {
+      todos,
+      errors,
+      clearErrors,
+      receiveTodo,
+      removeTodo,
+      createTodo,
+      updateTodo
+    } = this.props;
 
     const todoList = todos.map((todo, i) => (
-      <TodoListItem key={i} todo={todo} removeTodo={removeTodo} receiveTodo={receiveTodo} />
+      <TodoListItem
+        key={i}
+        todo={todo}
+        updateTodo={updateTodo}
+        removeTodo={removeTodo}
+        receiveTodo={receiveTodo}
+      />
     ));
     return (
       <div>
