@@ -1,10 +1,12 @@
 class Api::TodosController < ApplicationController
   def index
     @todos = Todo.all
+    render json: @todos
   end
 
   def show
     @todo = Todo.find(params[:id])
+    render json: @todo
   end
 
   def create
@@ -31,7 +33,7 @@ class Api::TodosController < ApplicationController
     @todo = Todo.find(params[:id])
 
     if @todo.destroy
-      render json: :index
+      render json: @todo
     else
       render json: { error: "cannot delete" }
     end

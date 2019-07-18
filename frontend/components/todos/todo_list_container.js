@@ -7,7 +7,8 @@ import {
   removeTodo,
   fetchTodos,
   createTodo,
-  updateTodo
+  updateTodo,
+  deleteTodo
 } from '../../actions/todo_actions';
 
 const mapStateToProps = state => ({
@@ -21,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   fetchTodo: () => dispatch(fetchTodos()),
   clearErrors: () => dispatch(clearErrors()),
   createTodo: todo => dispatch(createTodo(todo)),
-  updateTodo: todo => dispatch(updateTodo(todo))
+  updateTodo: todo => dispatch(updateTodo(todo)),
+  deleteTodo: todo => dispatch(deleteTodo(todo))
 });
 
 export default connect(

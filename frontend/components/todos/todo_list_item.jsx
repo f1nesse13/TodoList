@@ -7,6 +7,11 @@ class TodoListItem extends Component {
     this.state = { details: false, klass: false };
   }
 
+  delete(todo, e) {
+    e.preventDefault();
+    this.props.deleteTodo(todo);
+  }
+
   updateTodo(e) {
     e.preventDefault();
     const toggleTodo = Object.assign({}, this.props.todo, { done: !this.props.todo.done });
@@ -26,9 +31,9 @@ class TodoListItem extends Component {
         <h3>{this.props.todo.title}</h3>
         {this.state.details === true ? <TodoDetailView todo={this.props.todo} /> : ''}
         <button onClick={this.updateTodo.bind(this)}>
-          {this.props.todo.done === true ? 'Undo Todo' : 'Finished Todo'}
+          {this.props.todo.done === true ? 'Not Finished Todo' : 'Finished Todo'}
         </button>
-        <button onClick={this.props.removeTodo.bind(this, this.props.todo)}>Delete Todo</button>
+        <button onClick={this.delete.bind(this, this.props.todo)}>Delete Todo</button>
       </li>
     );
   }

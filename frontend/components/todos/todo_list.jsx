@@ -18,7 +18,8 @@ class TodoList extends React.Component {
       receiveTodo,
       removeTodo,
       createTodo,
-      updateTodo
+      updateTodo,
+      deleteTodo
     } = this.props;
 
     const todoList = todos.map((todo, i) => (
@@ -27,6 +28,7 @@ class TodoList extends React.Component {
         todo={todo}
         updateTodo={updateTodo}
         removeTodo={removeTodo}
+        deleteTodo={deleteTodo}
         receiveTodo={receiveTodo}
       />
     ));
