@@ -119,7 +119,7 @@ var clearErrors = function clearErrors() {
 /*!*******************************************!*\
   !*** ./frontend/actions/steps_actions.js ***!
   \*******************************************/
-/*! exports provided: RECEIVE_STEP, RECEIVE_STEPS, REMOVE_STEP, receiveSteps, receiveStep, removeStep */
+/*! exports provided: RECEIVE_STEP, RECEIVE_STEPS, REMOVE_STEP, receiveSteps, receiveStep, removeStep, fetchSteps, createStep, updateStep, deleteStep */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -130,6 +130,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSteps", function() { return receiveSteps; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveStep", function() { return receiveStep; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeStep", function() { return removeStep; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSteps", function() { return fetchSteps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStep", function() { return createStep; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStep", function() { return updateStep; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteStep", function() { return deleteStep; });
 var RECEIVE_STEP = 'RECEIVE_STEP';
 var RECEIVE_STEPS = 'RECEIVE_STEPS';
 var REMOVE_STEP = 'REMOVE_STEP';
@@ -149,6 +153,43 @@ var removeStep = function removeStep(step) {
   return {
     type: REMOVE_STEP,
     step: step
+  };
+};
+var fetchSteps = function fetchSteps() {
+  return function (dispatch) {
+    return APIUtil.fetchSteps().then(function (res) {
+      dispatch(receiveSteps(res));
+    });
+  };
+};
+var createStep = function createStep(step) {
+  return function (dispatch) {
+    return APIUtil.createStep(step).then(function (step) {
+      dispatch(receiveStep(step));
+      dispatch(clearErrors());
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+var updateStep = function updateStep(step) {
+  return function (dispatch) {
+    return APIUtil.updateStep(step).then(function (step) {
+      dispatch(receiveStep(step));
+      dispatch(clearErrors());
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
+var deleteStep = function deleteStep(step) {
+  return function (dispatch) {
+    return APIUtil.deleteStep(step).then(function (step) {
+      dispatch(removeStep(step));
+      dispatch(clearErrors());
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
   };
 };
 
