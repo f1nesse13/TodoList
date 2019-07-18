@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_18_181240) do
+ActiveRecord::Schema.define(version: 2019_07_18_195222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "steps", force: :cascade do |t|
     t.string "title", null: false
-    t.text "body", null: false
+    t.text "body"
     t.boolean "done", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_07_18_181240) do
 
   create_table "todos", force: :cascade do |t|
     t.string "title", null: false
-    t.text "body", null: false
+    t.text "body"
     t.boolean "done", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
