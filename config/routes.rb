@@ -4,5 +4,9 @@ Rails.application.routes.draw do
     resources :todos, except: [:new, :edit], defaults: { format: :json }
   end
 
+  namespace :api do
+    resources :steps, except: [:new, :edit], defaults: { format: :json }
+  end
+
   root to: "static_pages#root"
 end
