@@ -1,0 +1,8 @@
+<% action_url = action == :login ? sessions_url : users_url %>
+<% submit_text = action == :login ? 'Login' : 'Create User' %>
+<form action="<%= action_url %>" method="POST">
+  <%= auth_token %>
+  <input type="text" name='user[username]' placeholder='username' required>
+  <input type="password" name='user[password]' placeholder='password' required>
+  <button type="submit"><%= submit_text %></button>
+</form>
