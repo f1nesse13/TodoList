@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  helper_method :current_user, :logged_in?
+
   def current_user
     @current_user ||= User.find_by(session_token: session[:session_token])
   end
@@ -23,6 +26,12 @@ class ApplicationController < ActionController::Base
 
   def redirect_if_not_logged_in
     redirect_to new_session_url unless logged_in?
+  end
+
+  def deny_access_if_not_logged_in
+    unless logged_in?
+      render json: ["You must be logged in to do that"], status: :unauthorized
+    end
   end
 
   def user_params

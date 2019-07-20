@@ -1,4 +1,6 @@
 class Api::TodosController < ApplicationController
+  before_action :deny_access_if_not_logged_in
+
   def index
     @todos = Todo.all
     render json: @todos, include: :tags
