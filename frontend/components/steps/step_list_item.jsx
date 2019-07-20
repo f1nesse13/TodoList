@@ -7,12 +7,12 @@ class StepListItem extends Component {
 
   toggleStep(e) {
     e.preventDefault();
-    const toggledStep = Object.assign({}, this.props.step, { done: !this.props.step.done });
-    this.props.receiveStep(toggledStep);
+    let toggledStep = Object.assign({}, this.props.step, { done: !this.props.step.done });
+    this.props.updateStep(toggledStep).then(this.props.receiveStep(toggledStep));
   }
 
   render() {
-    const { removeStep, step } = this.props;
+    const { removeStep, step, deleteStep } = this.props;
     return (
       <div className="step-list">
         <p>{step.title}</p>
@@ -22,7 +22,7 @@ class StepListItem extends Component {
           {step.done === true ? 'Undo Step' : 'Finished Step'}
         </button>
 
-        <button onClick={removeStep}>Remove Step</button>
+        <button onClick={deleteStep}>Remove Step</button>
       </div>
     );
   }

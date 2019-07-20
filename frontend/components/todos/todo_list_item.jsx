@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoDetailView from './todo_detail_view';
+import TodoDetailViewContainer from './todo_detail_view_container';
 
 class TodoListItem extends Component {
   constructor(props) {
@@ -23,13 +23,17 @@ class TodoListItem extends Component {
   }
 
   render() {
+    let details;
+    if (this.state.details) {
+      details = <TodoDetailViewContainer todo={this.props.todo} />;
+    }
     return (
       <li key={this.props.todo.id} className={this.state.klass ? 'expand' : ''}>
         <button className="expand-todo" onClick={this.showDetails.bind(this)}>
           {this.state.klass ? 'Minimize Todo' : 'Expand Todo'}
         </button>
         <h3>{this.props.todo.title}</h3>
-        {this.state.details === true ? <TodoDetailView todo={this.props.todo} /> : ''}
+        {details}
         <button onClick={this.updateTodo.bind(this)}>
           {this.props.todo.done === true ? 'Not Finished Todo' : 'Finished Todo'}
         </button>

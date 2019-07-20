@@ -1,3 +1,6 @@
+import * as APIUtil from '../../util/todo_api_util';
+import { receiveErrors, clearErrors } from './error_actions';
+
 export const RECEIVE_STEP = 'RECEIVE_STEP';
 export const RECEIVE_STEPS = 'RECEIVE_STEPS';
 export const REMOVE_STEP = 'REMOVE_STEP';
@@ -17,13 +20,11 @@ export const removeStep = step => ({
   step
 });
 
-export const fetchSteps = () => dispatch =>
-  APIUtil.fetchSteps().then(res => {
-    dispatch(receiveSteps(res));
-  });
+export const fetchSteps = todo_id => dispatch =>
+  APIUtil.fetchSteps(todo_id).then(steps => dispatch(receiveSteps(steps)));
 
-export const createStep = step => dispatch =>
-  APIUtil.createStep(step).then(
+export const createStep = (todo_id, step) => dispatch =>
+  APIUtil.createStep(todo_id, step).then(
     step => {
       dispatch(receiveStep(step));
       dispatch(clearErrors());
