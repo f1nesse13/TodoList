@@ -896,8 +896,7 @@ function (_Component) {
       done: false,
       tag_names: [],
       errors: [],
-      tag_name: '',
-      user_id: current_user.id
+      tag_name: ''
     };
     _this.removeTag = _this.removeTag.bind(_assertThisInitialized(_this));
     return _this;
@@ -936,10 +935,7 @@ function (_Component) {
       var _this3 = this;
 
       e.preventDefault();
-      var todo = Object.assign({}, this.state); // const tags = Object.assign({}, this.state.tag_names);
-      // tags = { todo: tags };
-      // ajaxData = Object.assign({}, todo, tags);
-
+      var todo = Object.assign({}, this.state);
       this.props.createTodo(todo).then(function () {
         _this3.setState({
           title: '',
@@ -29732,7 +29728,6 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', function () {
   var prevStorage = localStorage.state ? JSON.parse(localStorage.state) : {};
   var store = Object(_frontend_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(prevStorage);
-  window.store = store;
   var content = document.getElementById('content');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_frontend_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
     store: store

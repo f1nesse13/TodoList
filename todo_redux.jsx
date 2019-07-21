@@ -7,7 +7,6 @@ import Root from './frontend/components/root';
 document.addEventListener('DOMContentLoaded', () => {
   const prevStorage = localStorage.state ? JSON.parse(localStorage.state) : {};
   const store = configureStore(prevStorage);
-  window.store = store;
 
   const content = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, content);

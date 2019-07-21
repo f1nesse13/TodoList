@@ -11,8 +11,7 @@ class TodoForm extends Component {
       done: false,
       tag_names: [],
       errors: [],
-      tag_name: '',
-      user_id: current_user.id
+      tag_name: ''
     };
 
     this.removeTag = this.removeTag.bind(this);
@@ -36,9 +35,6 @@ class TodoForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const todo = Object.assign({}, this.state);
-    // const tags = Object.assign({}, this.state.tag_names);
-    // tags = { todo: tags };
-    // ajaxData = Object.assign({}, todo, tags);
     this.props.createTodo(todo).then(() => {
       this.setState({ title: '', body: '', tag_names: [], tag_name: '' });
     });
