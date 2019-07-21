@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :todos
+
   def self.find_by_credentials(user_params)
     user = User.find_by(username: user_params[:username])
     return nil if user.nil?

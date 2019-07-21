@@ -2,6 +2,7 @@ class Todo < ApplicationRecord
   validates :title, presence: true
   validates :done, inclusion: { in: [true, false] }
 
+  belongs_to :user
   has_many :steps, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags,

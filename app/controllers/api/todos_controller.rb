@@ -2,7 +2,7 @@ class Api::TodosController < ApplicationController
   before_action :deny_access_if_not_logged_in
 
   def index
-    @todos = Todo.all
+    @todos = current_user.todos
     render json: @todos, include: :tags
   end
 
@@ -44,6 +44,6 @@ class Api::TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :body, :done, tag_names: [])
+    params.require(:todo).permit(:title, :body, :done, :user_id, tag_names: [])
   end
 end
