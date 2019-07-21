@@ -5,7 +5,15 @@ import uniqueId from '../../util/unique_id';
 class TodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: '', body: '', done: false, tag_names: [], errors: [], tag_name: '' };
+    this.state = {
+      title: '',
+      body: '',
+      done: false,
+      tag_names: [],
+      errors: [],
+      tag_name: '',
+      user_id: current_user.id
+    };
 
     this.removeTag = this.removeTag.bind(this);
   }

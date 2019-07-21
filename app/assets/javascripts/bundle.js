@@ -896,7 +896,8 @@ function (_Component) {
       done: false,
       tag_names: [],
       errors: [],
-      tag_name: ''
+      tag_name: '',
+      user_id: current_user.id
     };
     _this.removeTag = _this.removeTag.bind(_assertThisInitialized(_this));
     return _this;
@@ -1392,34 +1393,7 @@ __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var initialState = {
-  1: {
-    // this is the step with id = 1
-    id: 1,
-    title: 'walk to store',
-    done: false,
-    todo_id: 1
-  },
-  2: {
-    // this is the step with id = 2
-    id: 2,
-    title: 'buy soap',
-    done: false,
-    todo_id: 1
-  },
-  3: {
-    id: 3,
-    title: 'walk to the hair store',
-    done: true,
-    todo_id: 2
-  },
-  4: {
-    id: 4,
-    title: 'Buy Shampoo',
-    done: false,
-    todo_id: 2
-  }
-};
+var initialState = {};
 
 var stepsReducer = function stepsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -1466,20 +1440,7 @@ __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var initialState = {
-  1: {
-    id: 1,
-    title: 'wash car',
-    body: 'with soap',
-    done: false
-  },
-  2: {
-    id: 2,
-    title: 'wash dog',
-    body: 'with shampoo',
-    done: true
-  }
-};
+var initialState = {};
 
 var todosReducer = function todosReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
